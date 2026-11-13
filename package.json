@@ -1,0 +1,45 @@
+{
+  "name": "pdf-to-word-browser",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "npm run assets:copy && vite",
+    "build": "npm run assets:copy && tsc --noEmit && vite build",
+    "build:e2e": "npm run assets:copy && tsc --noEmit && vite build --mode e2e",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "test:deploy": "PROD_BUILD=1 playwright test tests/e2e/deployment.spec.ts",
+    "fixtures:generate": "tsx scripts/generate-fixtures.ts",
+    "benchmark": "playwright test tests/e2e/benchmark.spec.ts && tsx tests/benchmark/report.ts",
+    "assets:copy": "node scripts/copy-engine-assets.mjs"
+  },
+  "dependencies": {
+    "docx": "9.15.3",
+    "pdfjs-dist": "6.5.438",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "tesseract.js": "7.0.0"
+  },
+  "devDependencies": {
+    "@fontsource/noto-serif": "5.3.0",
+    "@playwright/test": "1.65.0",
+    "@tesseract.js-data/eng": "1.0.0",
+    "@tesseract.js-data/vie": "1.0.0",
+    "@types/node": "26.6.6",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.3.0",
+    "fflate": "0.8.3",
+    "pdf-lib": "1.17.1",
+    "tsx": "4.23.15",
+    "typescript": "7.0.2",
+    "vite": "8.3.8",
+    "vitest": "5.1.0"
+  }
+}

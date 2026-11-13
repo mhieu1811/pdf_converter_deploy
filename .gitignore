@@ -1,0 +1,8 @@
+.DS_Store
+node_modules/
+dist/
+.superpowers/
+.test-artifacts/
+public/engine/
+test-results/
+playwright-report/
